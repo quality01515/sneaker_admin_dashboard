@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Toastify overrides ─────────────────────────────────────────── */
+
+.Toastify__toast-container--top-center {
+  width: max-content !important;
+  max-width: 680px !important;
+  padding: 0 !important;
+  top: 14px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.vanish-toast {
+  background: #08080D !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-left: 3px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.85), 0 1px 6px rgba(0,0,0,0.6) !important;
+  padding: 10px 14px 10px 12px !important;
+  min-height: unset !important;
+  font-family: 'Consolas', 'Courier New', monospace !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 0.015em !important;
+}
+
+/* success */
+.Toastify__toast--success.vanish-toast {
+  border-left-color: #3DD68C !important;
+  background: linear-gradient(90deg, rgba(61,214,140,0.06) 0%, #08080D 45%) !important;
+}
+.Toastify__toast--success .Toastify__toast-icon svg {
+  fill: #3DD68C !important;
+  width: 16px !important; height: 16px !important;
+}
+
+/* error */
+.Toastify__toast--error.vanish-toast {
+  border-left-color: #F04E6A !important;
+  background: linear-gradient(90deg, rgba(240,78,106,0.07) 0%, #08080D 45%) !important;
+}
+.Toastify__toast--error .Toastify__toast-icon svg {
+  fill: #F04E6A !important;
+  width: 16px !important; height: 16px !important;
+}
+
+/* warning */
+.Toastify__toast--warning.vanish-toast {
+  border-left-color: #F5A524 !important;
+  background: linear-gradient(90deg, rgba(245,165,36,0.06) 0%, #08080D 45%) !important;
+}
+.Toastify__toast--warning .Toastify__toast-icon svg {
+  fill: #F5A524 !important;
+  width: 16px !important; height: 16px !important;
+}
+
+/* info */
+.Toastify__toast--info.vanish-toast {
+  border-left-color: #38BDF8 !important;
+  background: linear-gradient(90deg, rgba(56,189,248,0.06) 0%, #08080D 45%) !important;
+}
+.Toastify__toast--info .Toastify__toast-icon svg {
+  fill: #38BDF8 !important;
+  width: 16px !important; height: 16px !important;
+}
+
+/* body text */
+.Toastify__toast-body {
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 10px !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+/* progress bar */
+.vanish-toast-progress {
+  height: 1px !important;
+  border-radius: 0 !important;
+  opacity: 0.6 !important;
+}
+.Toastify__toast--success .vanish-toast-progress  { background: #3DD68C !important; }
+.Toastify__toast--error   .vanish-toast-progress  { background: #F04E6A !important; }
+.Toastify__toast--warning .vanish-toast-progress  { background: #F5A524 !important; }
+.Toastify__toast--info    .vanish-toast-progress  { background: #38BDF8 !important; }
+
+/* close button */
+.Toastify__close-button {
+  color: rgba(255, 255, 255, 0.2) !important;
+  opacity: 1 !important;
+  align-self: center !important;
+}
+.Toastify__close-button:hover {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+.Toastify__close-button > svg {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+/* ── Mobile / Phantom browser ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .Toastify__toast-container--top-center {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    left: 16px !important;
+    transform: none !important;
+    top: 10px !important;
+  }
+  .Toastify__toast-body {
+    white-space: normal !important;
+  }
+
+  /* Larger touch targets for buttons */
+  .MuiButton-root {
+    min-height: 40px;
+  }
+
+  /* Ensure tables scroll horizontally */
+  .MuiTableContainer-root {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent text selection on tap */
+  body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+}
+
+/* ── Safe area insets (notch/home bar on iPhone) ─────────────────── */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
